@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.7.5 on win32)" generated="20220421 12:13:19.197" rpa="true" schemaversion="2">
+<suite id="s1" name="Tasks" source="c:\Users\jukka.niskanen\Documents\rsb-certificate-no2\tasks.robot">
+<test id="s1-t1" name="Order robots from RobotSpareBin Industries Inc">
+<kw name="Open the robot order website">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://robotsparebinindustries.com/#/robot-order</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20220421 12:13:21.178" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20220421 12:13:21.208" level="INFO">Created download root directory: C:\Users\jukka.niskanen\AppData\Local\robocorp\webdrivers</msg>
+<msg timestamp="20220421 12:13:21.209" level="INFO">Created symlink directory: C:\Users\jukka.niskanen\AppData\Local\robocorp\webdrivers</msg>
+<msg timestamp="20220421 12:13:21.210" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20220421 12:13:22.816" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20220421 12:13:22.816" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20220421 12:13:22.816" level="INFO">Opening url 'https://robotsparebinindustries.com/#/robot-order'</msg>
+<status status="PASS" starttime="20220421 12:13:21.177" endtime="20220421 12:13:23.978"/>
+</kw>
+<status status="PASS" starttime="20220421 12:13:21.176" endtime="20220421 12:13:23.979"/>
+</kw>
+<kw name="Download the orders file">
+<kw name="Download" library="RPA.HTTP">
+<arg>https://robotsparebinindustries.com/orders.csv</arg>
+<arg>overwrite=true</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<msg timestamp="20220421 12:13:23.981" level="INFO">Creating a new HTTP session</msg>
+<msg timestamp="20220421 12:13:23.981" level="INFO">Creating Session using : alias=rpasession_alias.httpsrobotsparebinindustries.com, url=https://robotsparebinindustries.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220421 12:13:23.980" endtime="20220421 12:13:24.134"/>
+</kw>
+<status status="PASS" starttime="20220421 12:13:23.980" endtime="20220421 12:13:24.150"/>
+</kw>
+<kw name="Ask user for orders file">
+<kw name="Add heading" library="RPA.Dialogs">
+<arg>Choose orders file to upload.</arg>
+<doc>Add a centered heading text element</doc>
+<status status="PASS" starttime="20220421 12:13:24.155" endtime="20220421 12:13:24.157"/>
+</kw>
+<kw name="Add files" library="RPA.Dialogs">
+<arg>*.csv</arg>
+<doc>Add multiple file elements according to the given file pattern</doc>
+<msg timestamp="20220421 12:13:24.163" level="INFO">Adding file: C:\Users\jukka.niskanen\Documents\rsb-certificate-no2\orders.csv</msg>
+<status status="PASS" starttime="20220421 12:13:24.158" endtime="20220421 12:13:24.164"/>
+</kw>
+<kw name="Add submit buttons" library="RPA.Dialogs">
+<arg>buttons=Submit</arg>
+<tag>input</tag>
+<doc>Add custom submit buttons</doc>
+<status status="PASS" starttime="20220421 12:13:24.165" endtime="20220421 12:13:24.166"/>
+</kw>
+<kw name="Run dialog" library="RPA.Dialogs">
+<var>${results}</var>
+<tag>dialog</tag>
+<doc>Create a dialog from all the defined elements and block
+until the user has handled it.</doc>
+<msg timestamp="20220421 12:13:24.168" level="INFO">Protecting keyword: RPA.Dialogs.Run dialog</msg>
+<msg timestamp="20220421 12:13:51.325" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="FAIL" starttime="20220421 12:13:24.167" endtime="20220421 12:13:51.324"/>
+</kw>
+<status status="FAIL" starttime="20220421 12:13:24.150" endtime="20220421 12:13:51.325"/>
+</kw>
+<kw name="Fill the order forms with data from the CVS file">
+<status status="NOT RUN" starttime="20220421 12:13:51.326" endtime="20220421 12:13:51.326"/>
+</kw>
+<kw name="Create a ZIP file of the receipts">
+<status status="NOT RUN" starttime="20220421 12:13:51.327" endtime="20220421 12:13:51.328"/>
+</kw>
+<status status="FAIL" starttime="20220421 12:13:21.174" endtime="20220421 12:13:51.329">Execution terminated by signal</status>
+</test>
+<doc>Robocorp level II certification course</doc>
+<status status="FAIL" starttime="20220421 12:13:19.199" endtime="20220421 12:13:51.334"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220421 12:13:19.165" level="ERROR">Error in file 'c:\Users\jukka.niskanen\Documents\rsb-certificate-no2\tasks.robot' on line 10: Unrecognized section header '*** example final task ***'. Valid sections: 'Settings', 'Variables', 'Test Cases', 'Tasks', 'Keywords' and 'Comments'.</msg>
+</errors>
+</robot>
